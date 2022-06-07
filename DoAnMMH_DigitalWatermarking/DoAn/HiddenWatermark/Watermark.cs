@@ -125,11 +125,7 @@ namespace HiddenWatermark
             _watermarkDiff = _imageHelper.SavePixels(new RgbData(red, green, blue));
         }
 
-        /// <summary>
-        /// Embeds a watermark in an image and checks if the image already has a watermark
-        /// </summary>
-        /// <param name="imageBytes">Image bytes</param>
-        /// <returns>Retrieve results and embedded image bytes in 'WatermarkedImage' property</returns>
+        
         public WatermarkResult RetrieveAndEmbedWatermark(byte[] imageBytes)
         {
             WatermarkResult result = new WatermarkResult();
@@ -139,21 +135,13 @@ namespace HiddenWatermark
             return result;
         }
 
-        /// <summary>
-        /// Embeds a watermark in an image
-        /// </summary>
-        /// <param name="imageBytes">Image bytes</param>
-        /// <returns>Image bytes of embedded watermark</returns>
+        
         public byte[] EmbedWatermark(byte[] imageBytes)
         {
             return _imageHelper.MergeWatermarkPixels(imageBytes, _watermarkDiff);
         }
 
-        /// <summary>
-        /// Retrieves a watermark from an image
-        /// </summary>
-        /// <param name="imageBytes">Image bytes</param>
-        /// <returns>Watermark retrieval results</returns>
+        //So sanh watermark tu anh duoc load len voi watermarking chinh
         public WatermarkResult RetrieveWatermark(byte[] imageBytes)
         {
             var data = _imageHelper.ExtractWatermarkData(imageBytes, DiffWidth, DiffHeight);
@@ -257,6 +245,7 @@ namespace HiddenWatermark
                 }
             }
 
+            //Tinh toan do giong nhau
             var similarity = Math.Round((similiar / total) * 100);
 
             var recoveredData = new RgbData(recoveredWatermarkData);

@@ -41,3 +41,4 @@ namespace HiddenWatermark
 }
 
 //Chuyen tu khong gian mau YUV sang RGB va nguoc lai
+//Khong gian mau YUV voi Y la do sang va U-V la khong gian mau

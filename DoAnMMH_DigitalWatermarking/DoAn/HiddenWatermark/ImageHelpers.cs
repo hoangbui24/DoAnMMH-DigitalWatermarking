@@ -16,6 +16,7 @@ namespace HiddenWatermark
         private delegate double ColorConversion(double red, double green, double blue);
         private const int PaddingLimit = 10;
 
+        //Mot cap do phan giai di voi nhau
         private int[] _clippingWidths = new int[] { 1024, 911, 832, 800, 744, 700, 640, 600, 568, 508, 480, 448, 400, 360, 333 };
         private int[] _clippingHeights = new int[] { 768, 683, 624, 600, 558, 525, 480, 450, 426, 373, 360, 336, 300, 270, 250 };
 
@@ -28,6 +29,7 @@ namespace HiddenWatermark
                 _clippingHeights = heights.ToArray();
         }
 
+        //Doc pixel cua anh
         public RgbData ReadPixels(byte[] fileBytes)
         {
             var image = CreateImage(fileBytes);
@@ -41,6 +43,7 @@ namespace HiddenWatermark
             if (image.Format != PixelFormats.Bgr32)
                 image = ToBgr32(image);
 
+            //Do chuyen doi tu bit sang pixel nen phai chia 8
             var pixelSize = image.Format.BitsPerPixel / 8;
             var width = image.PixelWidth;
             var height = image.PixelHeight;
